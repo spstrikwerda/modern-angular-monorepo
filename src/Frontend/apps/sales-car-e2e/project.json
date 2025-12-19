@@ -1,0 +1,25 @@
+{
+  "name": "sales-car-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/sales-car-e2e/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/sales-car-e2e/cypress.config.ts",
+        "devServerTarget": "sales-car:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "sales-car:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

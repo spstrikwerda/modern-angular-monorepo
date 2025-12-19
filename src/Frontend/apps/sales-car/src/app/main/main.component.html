@@ -1,0 +1,36 @@
+<div class="main-container">
+  <h2>Enter Your Car Details</h2>
+  <form class="car-form">
+    <div class="form-group">
+      <label for="car-model">Car Model:</label>
+      <input 
+        id="car-model" 
+        type="text" 
+        [(ngModel)]="carModel" 
+        name="carModel"
+        placeholder="e.g., Toyota Camry"
+        class="form-input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="car-year">Year:</label>
+      <input 
+        id="car-year" 
+        type="text" 
+        [(ngModel)]="carYear" 
+        name="carYear"
+        placeholder="e.g., 2020"
+        class="form-input"
+      />
+    </div>
+    <button 
+      id="submit-button" 
+      type="button" 
+      (click)="submitCarInfo()" 
+      class="btn-submit"
+      [disabled]="!carModel || !carYear"
+    >
+      Submit
+    </button>
+  </form>
+</div>
