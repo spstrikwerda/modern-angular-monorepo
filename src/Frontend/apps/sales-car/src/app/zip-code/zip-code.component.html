@@ -1,0 +1,19 @@
+<div class="zip-code-container" *ngIf="content$ | async as content">
+  <h2>{{ content.heading }}</h2>
+  <p *ngIf="content.paragraph">{{ content.paragraph }}</p>
+  <form (ngSubmit)="submitZipCode()">
+    <div class="form-group">
+      <label for="zipCode">{{ content.subheading || 'Zip Code:' }}</label>
+      <input 
+        type="text" 
+        id="zipCode" 
+        name="zipCode" 
+        [(ngModel)]="zipCode" 
+        placeholder="e.g., 12345"
+        maxlength="5"
+        required
+      />
+    </div>
+    <button type="submit" [disabled]="!zipCode">Continue</button>
+  </form>
+</div>

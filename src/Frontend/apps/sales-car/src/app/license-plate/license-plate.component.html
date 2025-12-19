@@ -1,0 +1,18 @@
+<div class="license-plate-container" *ngIf="content$ | async as content">
+  <h2>{{ content.heading }}</h2>
+  <p *ngIf="content.paragraph">{{ content.paragraph }}</p>
+  <form (ngSubmit)="submitLicensePlate()">
+    <div class="form-group">
+      <label for="licensePlate">{{ content.subheading || 'License Plate Number:' }}</label>
+      <input 
+        type="text" 
+        id="licensePlate" 
+        name="licensePlate" 
+        [(ngModel)]="licensePlate" 
+        placeholder="e.g., ABC-123"
+        required
+      />
+    </div>
+    <button type="submit" [disabled]="!licensePlate || (isLoading$ | async)">Continue</button>
+  </form>
+</div>

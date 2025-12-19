@@ -1,0 +1,13 @@
+<div class="main-container" *ngIf="content$ | async as content">
+  <h2>{{ content.heading }}</h2>
+  <p class="question-text">{{ content.paragraph }}</p>
+  
+  <lib-button-container>
+    <lib-button 
+      *ngFor="let button of content.buttons" 
+      [title]="button.title" 
+      [route]="button.route" 
+      (buttonClick)="button.action === 'setInsuranceNo' ? onNoClick() : onYesClick()">
+    </lib-button>
+  </lib-button-container>
+</div>

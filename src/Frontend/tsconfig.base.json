@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@frontend/shared": ["libs/shared/src/index.ts"],
+      "@frontend/damage-sales-car": ["libs/shared/damage/sales-car/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -5,12 +5,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-start',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.css'],
+  selector: 'app-zip-code',
+  templateUrl: './zip-code.component.html',
+  styleUrls: ['./zip-code.component.css'],
   standalone: false
 })
-export class StartComponent {
+export class ZipCodeComponent {
+  zipCode = '';
   content$: Observable<RouteContent | null>;
 
   constructor(
@@ -22,7 +23,9 @@ export class StartComponent {
 
   // Content is preloaded via RouteContentResolver attached to the route
 
-  navigateToMain() {
-    this.router.navigate(['/car-insured']);
+  submitZipCode() {
+    if (this.zipCode) {
+      this.router.navigate(['/thanks']);
+    }
   }
 }
