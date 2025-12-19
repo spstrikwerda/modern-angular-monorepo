@@ -2,7 +2,6 @@
   "name": "@frontend/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
   "private": true,
   "dependencies": {
     "@angular/common": "catalog:",
@@ -14,6 +13,9 @@
     "@angular/platform-server": "catalog:",
     "@angular/router": "catalog:",
     "@angular/ssr": "catalog:",
+    "@ngrx/effects": "^21.0.0",
+    "@ngrx/store": "^21.0.0",
+    "@ngrx/store-devtools": "^21.0.0",
     "express": "catalog:",
     "rxjs": "catalog:",
     "zone.js": "catalog:"
@@ -26,6 +28,7 @@
     "@angular/cli": "catalog:",
     "@angular/compiler-cli": "catalog:",
     "@angular/language-service": "catalog:",
+    "@cypress/schematic": "catalog:",
     "@eslint/js": "catalog:",
     "@nx/angular": "catalog:",
     "@nx/cypress": "catalog:",
@@ -45,9 +48,9 @@
     "@types/jest": "^29.5.12",
     "@types/node": "18.16.9",
     "@typescript-eslint/utils": "catalog:",
+    "@vitest/ui": "catalog:",
     "angular-eslint": "catalog:",
     "cypress": "catalog:",
-    "@cypress/schematic": "catalog:",
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-playwright": "catalog:",
@@ -56,6 +59,8 @@
     "jest-environment-jsdom": "catalog:",
     "jest-preset-angular": "catalog:",
     "jest-util": "catalog:",
+    "lint-staged": "catalog:",
+    "msw": "^2.12.4",
     "nx": "catalog:",
     "prettier": "catalog:",
     "ts-jest": "catalog:",
@@ -64,7 +69,23 @@
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
     "vite": "catalog:",
-    "vitest": "catalog:",
-    "@vitest/ui": "catalog:"
+    "vitest": "catalog:"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,html}": [
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "msw": {
+    "workerDirectory": [
+      "apps\\sales-car\\public"
+    ]
   }
 }

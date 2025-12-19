@@ -1,0 +1,14 @@
+<div class="is-this-your-car-container" *ngIf="content$ | async as content">
+  <h2>{{ content.heading }}</h2>
+  <p *ngIf="content.paragraph" class="description">{{ content.paragraph }}</p>
+  
+  <lib-overview [carInfo]="carInfo$ | async"></lib-overview>
+  
+  <lib-button-container>
+    <lib-button 
+      *ngFor="let button of content.buttons" 
+      [title]="button.title" 
+      [route]="button.route">
+    </lib-button>
+  </lib-button-container>
+</div>
